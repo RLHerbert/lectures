@@ -1,4 +1,4 @@
-// CLASS PROVIDED: point (part of the namespace main_savitch_chapter2)
+// CLASS PROVIDED: point 
 //
 // CONSTRUCTOR for the point class:
 //   point(double initial_x = 0.0, double initial_y = 0.0)
