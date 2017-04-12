@@ -33,8 +33,8 @@
         void shift(double x_amount, double y_amount);
         void rotate90( );
         // CONSTANT MEMBER FUNCTIONS
-        double get_x( ) const { return x; } 
-        double get_y( ) const { return y; }
+        double get_x( ) const { return x; } //Inline implementation of get_x()
+        double get_y( ) const { return y; } //Inline implementation of get_y()
     private:
         double x; // x coordinate of this point
         double y; // y coordinate of this point
