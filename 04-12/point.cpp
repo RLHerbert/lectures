@@ -23,7 +23,12 @@
 // VALUE SEMANTICS for the point class:
 //    Assignments and the copy constructor may be used with point objects.
 
+#include <iostream>
+#include <cassert>
+#include <cmath>
+using namespace std;
 
+namespace point_diba{
     class point
     {
     public:
@@ -39,6 +44,12 @@
         double x; // x coordinate of this point
         double y; // y coordinate of this point
     };
+//NON MEMBER FUNCTION
+double distance(point p1, point p2);
+istream & operator >>(istream &in, point q);
+
+
+bool operator==(point p1, point p2);
 
 point::point(double initial_x, double initial_y)
     {
@@ -65,3 +76,47 @@ point::point(double initial_x, double initial_y)
         y = new_y; 
     }
 
+    double distance(point p1, point p2){
+        /*if(p1 == p2){
+            return 0.0;
+        }
+        */
+        double diffx = p1.get_x() - p2.get_x();
+        double diffy = p1.get_y() - p2.get_y();
+        double result = sqrt(diffx*diffx +diffy*diffy);
+        return result;
+    }
+    bool operator==(point p1, point p2){
+
+        return (p1.get_x()== p2.get_x()) && 
+               (p1.get_y() == p2.get_y());
+    }
+}
+using namespace point_diba;
+
+int main(){
+
+    cout<<" Testing constructor with default values"<<endl;
+    point p1;
+    assert(p1.get_x()==0.0);
+    assert(p1.get_y()==0.0);
+    cout<<"PASSED"<<endl;
+
+    
+    cout<<" Testing distance function"<<endl;
+    point p2(10,20);
+    double result = point_diba::distance(p1, p2);
+    assert(result > 22.36 && result <22.37);
+    cout<<"PASSED"<<endl;
+
+
+
+
+
+
+
+
+
+
+
+}

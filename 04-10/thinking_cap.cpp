@@ -17,6 +17,7 @@ class thinking_cap{
         char green_string[50];
         char red_string[50];
 };
+
 thinking_cap::thinking_cap(){
     char ng[]="Green", nr[]="Red";
     slots(ng, nr);
