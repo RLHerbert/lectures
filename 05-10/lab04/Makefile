@@ -2,8 +2,8 @@
 
 all: testlist 
 
-testlist: testlist.o linkedlist.o
-	g++ -g -o  testlist testlist.o linkedlist.o
+testlist: testlist.o 
+	g++ -g -o  testlist testlist.o 
 
 clean:
-	rm -f testlist testlist.o linkedlist.o 
+	rm -f testlist testlist.o 

@@ -1,15 +1,15 @@
-// intlist.cpp
-// Implements class LinkedList
+// Itemlist.cpp
+// Implements class LinkedList<Item>
 // YOUR NAME(S), AND DATE
 
-#include "linkedlist.h"
 
 #include <iostream>
 using std::cout;
 
 // return sum of values in list
-int LinkedList::sum() const {
-    int sumElem=0;
+template <class Item>
+Item LinkedList<Item>::sum() const {
+    Item sumElem;
     Node* p = first;
     if(p){
         sumElem= first->info;
@@ -24,7 +24,8 @@ int LinkedList::sum() const {
 }
 
 // returns true if value is in the list; false if not
-bool LinkedList::contains(int value) const {
+template <class Item>
+bool LinkedList<Item>::contains(Item value) const {
     Node *p= first;
     
     while(p){
@@ -37,8 +38,9 @@ bool LinkedList::contains(int value) const {
 }
 
 // returns maximum value in list, or 0 if empty list
-int LinkedList::max() const {
-    int maxElem=0;
+template <class Item>
+Item LinkedList<Item>::max() const {
+    Item maxElem;
     Node* p = first;
     if(p){
         maxElem= first->info;
@@ -56,7 +58,8 @@ int LinkedList::max() const {
 
 
 // inserts value as new node at beginning of list
-void LinkedList::insertFirst(int value) {
+template <class Item>
+void LinkedList<Item>::insertFirst(Item value) {
     Node *p = new Node;
     p->info = value;
     p->next = first;
@@ -68,10 +71,12 @@ void LinkedList::insertFirst(int value) {
 // DO NOT CHANGE ANYTHING BELOW (READ IT THOUGH)
 
 // constructor sets up empty list
-LinkedList::LinkedList() : first(0) { }
+template <class Item>
+LinkedList<Item>::LinkedList() : first(0) { }
 
 // destructor deletes all nodes
-LinkedList::~LinkedList() {
+template <class Item>
+LinkedList<Item>::~LinkedList() {
     Node * dt;
     while(first){
         dt=first;
@@ -81,7 +86,8 @@ LinkedList::~LinkedList() {
 }
 
 // append value at end of list
-void LinkedList::append(int value) {
+template <class Item>
+void LinkedList<Item>::append(Item value) {
     Node *newNode = new Node;
     newNode->info = value;
     newNode->next = 0;
@@ -97,7 +103,8 @@ void LinkedList::append(int value) {
         
 }
 // return count of values
-int LinkedList::count() const {
+template <class Item>
+int LinkedList<Item>::count() const {
     int result = 0;
     for(Node *p = first; p!=0; p=p->next){
         result++;
@@ -105,8 +112,9 @@ int LinkedList::count() const {
     return result;
 }
 
-// print values enclose in [], separated by spaces
-void LinkedList::print() const {
+// prItem values enclose in [], separated by spaces
+template <class Item>
+void LinkedList<Item>::print() const {
     Node *n = first;
     cout << '[';
     while (n) {

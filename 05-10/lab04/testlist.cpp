@@ -9,8 +9,8 @@ using namespace std;
 
 // creates two lists (one empty), and does simple tests of list methods
 int main(int argc, char *argv[]) {
-    typedef int value_type;
-    LinkedList list1, list2;
+    typedef string value_type;
+    LinkedList<value_type> list1, list2;
     value_type first , second , last ;
     value_type sum, true_sum;
     const int num_items =5;
