@@ -70,12 +70,14 @@ int main(int argc, char *argv[]) {
         << (list2.contains(items[1])? "yes" : "no") << endl;
     cout << endl;
     cout<<"Iterate through the list"<<endl;
+
     LinkedList<value_type>::iterator it = list1.begin();
     LinkedList<value_type>::iterator en = list1.end();
     while(it !=en){
         cout<<*it <<" ";
         ++it;
     }
+    cout<<endl;
 
     return 0;
 }

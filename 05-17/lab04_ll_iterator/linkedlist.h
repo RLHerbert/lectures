@@ -13,6 +13,8 @@ class LinkedList {
 
 public:
     // ctor, dtor and 3 methods already done in intlist.cpp:
+    typedef list_iterator<Item> iterator;
+    friend class list_iterator<Item>;
     LinkedList();              // constructor
     ~LinkedList();             // destructor
     void append(Item value); // append value at end of list
@@ -26,6 +28,10 @@ public:
     void insertFirst(Item value);     // insert new first value
 
     //begin and end methods for the iterator
+    iterator begin(){ return iterator(first);}
+    iterator end(){ return iterator(0);}
+
+
 
 private:
 
@@ -41,7 +47,15 @@ private:
 template <class Item>
 class list_iterator: public std::iterator <std::forward_iterator_tag, Item>
 {
-    
+    public:
+        typedef typename LinkedList<Item>::Node Node;
+
+        list_iterator(Node* mycurr=0){ curr = mycurr;}
+        Item operator*(){ return curr->info;}
+        void operator++(){ if(curr) curr = curr->next;}
+        bool operator!=(list_iterator other){ return curr != other.curr;}
+    private:
+        Node  * curr;
 };
 
 
