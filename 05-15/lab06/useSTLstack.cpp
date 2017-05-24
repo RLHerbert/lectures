@@ -21,7 +21,6 @@ string reverse(string input){
     }
     return result;
 
-
 }
 
 int main(int argc, char* argv[]) {
